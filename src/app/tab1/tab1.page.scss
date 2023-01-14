@@ -1,0 +1,15 @@
+/* iOS places the subtitle above the title */
+ion-card-header.md {
+    display: flex;
+    flex-flow: column-reverse;
+  }
+
+.form-body {
+    padding: 1.2px;
+    margin: 2px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    border: 2px dotted;
+    color: black;
+}

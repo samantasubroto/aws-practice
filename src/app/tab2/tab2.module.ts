@@ -4,8 +4,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-
+import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
 import { Tab2PageRoutingModule } from './tab2-routing.module';
+
+SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom]);
 
 @NgModule({
   imports: [
