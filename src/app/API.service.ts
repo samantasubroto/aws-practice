@@ -95,15 +95,26 @@ export type CreateRestaurantInput = {
   name: string;
   description: string;
   city: string;
+  isVeg: boolean;
+  menu?: Array<string | null> | null;
 };
 
 export type ModelRestaurantConditionInput = {
   name?: ModelStringInput | null;
   description?: ModelStringInput | null;
   city?: ModelStringInput | null;
+  isVeg?: ModelBooleanInput | null;
+  menu?: ModelStringInput | null;
   and?: Array<ModelRestaurantConditionInput | null> | null;
   or?: Array<ModelRestaurantConditionInput | null> | null;
   not?: ModelRestaurantConditionInput | null;
+};
+
+export type ModelBooleanInput = {
+  ne?: boolean | null;
+  eq?: boolean | null;
+  attributeExists?: boolean | null;
+  attributeType?: ModelAttributeTypes | null;
 };
 
 export type Restaurant = {
@@ -112,6 +123,8 @@ export type Restaurant = {
   name: string;
   description: string;
   city: string;
+  isVeg: boolean;
+  menu?: Array<string | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -121,6 +134,8 @@ export type UpdateRestaurantInput = {
   name?: string | null;
   description?: string | null;
   city?: string | null;
+  isVeg?: boolean | null;
+  menu?: Array<string | null> | null;
 };
 
 export type DeleteRestaurantInput = {
@@ -163,6 +178,8 @@ export type ModelRestaurantFilterInput = {
   name?: ModelStringInput | null;
   description?: ModelStringInput | null;
   city?: ModelStringInput | null;
+  isVeg?: ModelBooleanInput | null;
+  menu?: ModelStringInput | null;
   and?: Array<ModelRestaurantFilterInput | null> | null;
   or?: Array<ModelRestaurantFilterInput | null> | null;
   not?: ModelRestaurantFilterInput | null;
@@ -217,8 +234,15 @@ export type ModelSubscriptionRestaurantFilterInput = {
   name?: ModelSubscriptionStringInput | null;
   description?: ModelSubscriptionStringInput | null;
   city?: ModelSubscriptionStringInput | null;
+  isVeg?: ModelSubscriptionBooleanInput | null;
+  menu?: ModelSubscriptionStringInput | null;
   and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
   or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
+};
+
+export type ModelSubscriptionBooleanInput = {
+  ne?: boolean | null;
+  eq?: boolean | null;
 };
 
 export type CreateTodoMutation = {
@@ -254,6 +278,8 @@ export type CreateRestaurantMutation = {
   name: string;
   description: string;
   city: string;
+  isVeg: boolean;
+  menu?: Array<string | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -264,6 +290,8 @@ export type UpdateRestaurantMutation = {
   name: string;
   description: string;
   city: string;
+  isVeg: boolean;
+  menu?: Array<string | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -274,6 +302,8 @@ export type DeleteRestaurantMutation = {
   name: string;
   description: string;
   city: string;
+  isVeg: boolean;
+  menu?: Array<string | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -306,6 +336,8 @@ export type GetRestaurantQuery = {
   name: string;
   description: string;
   city: string;
+  isVeg: boolean;
+  menu?: Array<string | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -318,6 +350,8 @@ export type ListRestaurantsQuery = {
     name: string;
     description: string;
     city: string;
+    isVeg: boolean;
+    menu?: Array<string | null> | null;
     createdAt: string;
     updatedAt: string;
   } | null>;
@@ -357,6 +391,8 @@ export type OnCreateRestaurantSubscription = {
   name: string;
   description: string;
   city: string;
+  isVeg: boolean;
+  menu?: Array<string | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -367,6 +403,8 @@ export type OnUpdateRestaurantSubscription = {
   name: string;
   description: string;
   city: string;
+  isVeg: boolean;
+  menu?: Array<string | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -377,6 +415,8 @@ export type OnDeleteRestaurantSubscription = {
   name: string;
   description: string;
   city: string;
+  isVeg: boolean;
+  menu?: Array<string | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -471,6 +511,8 @@ export class APIService {
           name
           description
           city
+          isVeg
+          menu
           createdAt
           updatedAt
         }
@@ -497,6 +539,8 @@ export class APIService {
           name
           description
           city
+          isVeg
+          menu
           createdAt
           updatedAt
         }
@@ -523,6 +567,8 @@ export class APIService {
           name
           description
           city
+          isVeg
+          menu
           createdAt
           updatedAt
         }
@@ -599,6 +645,8 @@ export class APIService {
           name
           description
           city
+          isVeg
+          menu
           createdAt
           updatedAt
         }
@@ -625,6 +673,8 @@ export class APIService {
             name
             description
             city
+            isVeg
+            menu
             createdAt
             updatedAt
           }
@@ -736,6 +786,8 @@ export class APIService {
           name
           description
           city
+          isVeg
+          menu
           createdAt
           updatedAt
         }
@@ -763,6 +815,8 @@ export class APIService {
           name
           description
           city
+          isVeg
+          menu
           createdAt
           updatedAt
         }
@@ -790,6 +844,8 @@ export class APIService {
           name
           description
           city
+          isVeg
+          menu
           createdAt
           updatedAt
         }

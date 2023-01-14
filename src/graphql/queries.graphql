@@ -30,6 +30,8 @@ query GetRestaurant($id: ID!) {
     name
     description
     city
+    isVeg
+    menu
     createdAt
     updatedAt
   }
@@ -45,6 +47,8 @@ query ListRestaurants(
       name
       description
       city
+      isVeg
+      menu
       createdAt
       updatedAt
     }

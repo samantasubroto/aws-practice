@@ -11,6 +11,7 @@ import { APIService, Restaurant } from '../API.service';
 })
 export class Tab1Page implements OnInit {
   public createForm: FormGroup;
+  public restaurant_types = ["veg", "non-veg"];
 
   public restaurants: Array<Restaurant> = [];
 
@@ -21,6 +22,7 @@ export class Tab1Page implements OnInit {
       name: ['', Validators.required],
       description: ['', Validators.required],
       city: ['', Validators.required],
+      isVeg: [''],
     });
   }
   ngOnInit(): void {
@@ -39,6 +41,7 @@ export class Tab1Page implements OnInit {
   }
 
   public onCreate(restaurant: Restaurant) {
+   // console.log(restaurant);
     this.api
       .CreateRestaurant(restaurant)
       .then(() => {

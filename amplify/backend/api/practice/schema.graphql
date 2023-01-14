@@ -14,4 +14,6 @@ type Restaurant @model {
   name: String!
   description: String!
   city: String!
+  isVeg: Boolean!
+  menu: [String]
 }

@@ -22,6 +22,10 @@
         <label>City: </label>
         <input type="text" formControlName="city" autocomplete="off" />
       </div>
+      <div>
+          <ion-checkbox value="true" formControlName="isVeg" slot="start"></ion-checkbox>
+          <ion-label><h3>vegetarian</h3></ion-label>
+      </div>
       <button class="btn btn-success align-center" type="submit">Submit</button>
     </form>
   </div>
@@ -36,7 +40,28 @@
     </ion-card-header>
   
     <ion-card-content>
-      {{ restaurant?.description }}
+      <ion-row>
+        <div *ngIf="restaurant?.isVeg else nonVeg">
+          <ion-img src="../../assets/icon/veg.png"></ion-img>
+        </div>
+        <ng-template #nonVeg>
+          <ion-img src="../../assets/icon/non-veg.png"></ion-img>
+        </ng-template>
+        <ion-col>
+          {{ restaurant?.description }}
+        </ion-col>
+      </ion-row>
+
+      <ion-accordion-group>
+        <ion-accordion value="first">
+          <ion-item slot="header" color="light">
+            <ion-label>Menu</ion-label>
+          </ion-item>
+          <div *ngFor="let menu of restaurant?.menu"  class="ion-padding" slot="content">
+            {{menu}}
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
     </ion-card-content>
   </ion-card>
 
