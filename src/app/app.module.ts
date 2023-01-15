@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { IonicRatingModule } from 'ionic-rating';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     AmplifyAuthenticatorModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    IonicRatingModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

@@ -97,6 +97,7 @@ export type CreateRestaurantInput = {
   city: string;
   isVeg: boolean;
   menu?: Array<string | null> | null;
+  rate?: number | null;
 };
 
 export type ModelRestaurantConditionInput = {
@@ -105,6 +106,7 @@ export type ModelRestaurantConditionInput = {
   city?: ModelStringInput | null;
   isVeg?: ModelBooleanInput | null;
   menu?: ModelStringInput | null;
+  rate?: ModelIntInput | null;
   and?: Array<ModelRestaurantConditionInput | null> | null;
   or?: Array<ModelRestaurantConditionInput | null> | null;
   not?: ModelRestaurantConditionInput | null;
@@ -117,6 +119,18 @@ export type ModelBooleanInput = {
   attributeType?: ModelAttributeTypes | null;
 };
 
+export type ModelIntInput = {
+  ne?: number | null;
+  eq?: number | null;
+  le?: number | null;
+  lt?: number | null;
+  ge?: number | null;
+  gt?: number | null;
+  between?: Array<number | null> | null;
+  attributeExists?: boolean | null;
+  attributeType?: ModelAttributeTypes | null;
+};
+
 export type Restaurant = {
   __typename: "Restaurant";
   id: string;
@@ -125,6 +139,7 @@ export type Restaurant = {
   city: string;
   isVeg: boolean;
   menu?: Array<string | null> | null;
+  rate?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -136,6 +151,7 @@ export type UpdateRestaurantInput = {
   city?: string | null;
   isVeg?: boolean | null;
   menu?: Array<string | null> | null;
+  rate?: number | null;
 };
 
 export type DeleteRestaurantInput = {
@@ -180,6 +196,7 @@ export type ModelRestaurantFilterInput = {
   city?: ModelStringInput | null;
   isVeg?: ModelBooleanInput | null;
   menu?: ModelStringInput | null;
+  rate?: ModelIntInput | null;
   and?: Array<ModelRestaurantFilterInput | null> | null;
   or?: Array<ModelRestaurantFilterInput | null> | null;
   not?: ModelRestaurantFilterInput | null;
@@ -236,6 +253,7 @@ export type ModelSubscriptionRestaurantFilterInput = {
   city?: ModelSubscriptionStringInput | null;
   isVeg?: ModelSubscriptionBooleanInput | null;
   menu?: ModelSubscriptionStringInput | null;
+  rate?: ModelSubscriptionIntInput | null;
   and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
   or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
 };
@@ -243,6 +261,18 @@ export type ModelSubscriptionRestaurantFilterInput = {
 export type ModelSubscriptionBooleanInput = {
   ne?: boolean | null;
   eq?: boolean | null;
+};
+
+export type ModelSubscriptionIntInput = {
+  ne?: number | null;
+  eq?: number | null;
+  le?: number | null;
+  lt?: number | null;
+  ge?: number | null;
+  gt?: number | null;
+  between?: Array<number | null> | null;
+  in?: Array<number | null> | null;
+  notIn?: Array<number | null> | null;
 };
 
 export type CreateTodoMutation = {
@@ -280,6 +310,7 @@ export type CreateRestaurantMutation = {
   city: string;
   isVeg: boolean;
   menu?: Array<string | null> | null;
+  rate?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -292,6 +323,7 @@ export type UpdateRestaurantMutation = {
   city: string;
   isVeg: boolean;
   menu?: Array<string | null> | null;
+  rate?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -304,6 +336,7 @@ export type DeleteRestaurantMutation = {
   city: string;
   isVeg: boolean;
   menu?: Array<string | null> | null;
+  rate?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -338,6 +371,7 @@ export type GetRestaurantQuery = {
   city: string;
   isVeg: boolean;
   menu?: Array<string | null> | null;
+  rate?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -352,6 +386,7 @@ export type ListRestaurantsQuery = {
     city: string;
     isVeg: boolean;
     menu?: Array<string | null> | null;
+    rate?: number | null;
     createdAt: string;
     updatedAt: string;
   } | null>;
@@ -393,6 +428,7 @@ export type OnCreateRestaurantSubscription = {
   city: string;
   isVeg: boolean;
   menu?: Array<string | null> | null;
+  rate?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -405,6 +441,7 @@ export type OnUpdateRestaurantSubscription = {
   city: string;
   isVeg: boolean;
   menu?: Array<string | null> | null;
+  rate?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -417,6 +454,7 @@ export type OnDeleteRestaurantSubscription = {
   city: string;
   isVeg: boolean;
   menu?: Array<string | null> | null;
+  rate?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -513,6 +551,7 @@ export class APIService {
           city
           isVeg
           menu
+          rate
           createdAt
           updatedAt
         }
@@ -541,6 +580,7 @@ export class APIService {
           city
           isVeg
           menu
+          rate
           createdAt
           updatedAt
         }
@@ -569,6 +609,7 @@ export class APIService {
           city
           isVeg
           menu
+          rate
           createdAt
           updatedAt
         }
@@ -647,6 +688,7 @@ export class APIService {
           city
           isVeg
           menu
+          rate
           createdAt
           updatedAt
         }
@@ -675,6 +717,7 @@ export class APIService {
             city
             isVeg
             menu
+            rate
             createdAt
             updatedAt
           }
@@ -788,6 +831,7 @@ export class APIService {
           city
           isVeg
           menu
+          rate
           createdAt
           updatedAt
         }
@@ -817,6 +861,7 @@ export class APIService {
           city
           isVeg
           menu
+          rate
           createdAt
           updatedAt
         }
@@ -846,6 +891,7 @@ export class APIService {
           city
           isVeg
           menu
+          rate
           createdAt
           updatedAt
         }

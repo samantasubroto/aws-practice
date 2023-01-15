@@ -36,6 +36,7 @@ subscription OnCreateRestaurant(
     city
     isVeg
     menu
+    rate
     createdAt
     updatedAt
   }
@@ -50,6 +51,7 @@ subscription OnUpdateRestaurant(
     city
     isVeg
     menu
+    rate
     createdAt
     updatedAt
   }
@@ -64,6 +66,7 @@ subscription OnDeleteRestaurant(
     city
     isVeg
     menu
+    rate
     createdAt
     updatedAt
   }

@@ -28,6 +28,7 @@
     "@capacitor/status-bar": "4.1.1",
     "@ionic/angular": "^6.1.9",
     "aws-amplify": "^5.0.9",
+    "ionic-rating": "^2.0.0",
     "ionicons": "^6.0.3",
     "rxjs": "~7.5.0",
     "swiper": "^8.4.5",

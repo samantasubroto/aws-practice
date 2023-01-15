@@ -23,6 +23,7 @@ export class Tab1Page implements OnInit {
       description: ['', Validators.required],
       city: ['', Validators.required],
       isVeg: [''],
+      rate: [''],
     });
   }
   ngOnInit(): void {
@@ -41,7 +42,7 @@ export class Tab1Page implements OnInit {
   }
 
   public onCreate(restaurant: Restaurant) {
-   // console.log(restaurant);
+    //console.log(restaurant);
     this.api
       .CreateRestaurant(restaurant)
       .then(() => {

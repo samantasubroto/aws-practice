@@ -23,41 +23,50 @@
         <input type="text" formControlName="city" autocomplete="off" />
       </div>
       <div>
-          <ion-checkbox value="true" formControlName="isVeg" slot="start"></ion-checkbox>
-          <ion-label><h3>vegetarian</h3></ion-label>
+        <ion-checkbox value="true" formControlName="isVeg" slot="start"></ion-checkbox>
+        <ion-label>
+          <h3>vegetarian</h3>
+        </ion-label>
       </div>
+      <ion-rating formControlName="rate" [size]=true [rate]="3">
+      </ion-rating>
       <button class="btn btn-success align-center" type="submit">Submit</button>
     </form>
   </div>
 
 
-  <ion-card  *ngFor="let restaurant of restaurants">
+  <ion-card *ngFor="let restaurant of restaurants">
     <ion-card-header>
       <ion-card-title>{{ restaurant?.name }}</ion-card-title>
+      <ng-container *ngFor="let rating of  [].constructor(restaurant?.rate)">
+        <ion-icon name="star"></ion-icon>
+      </ng-container>
       <ion-card-subtitle>
         <ion-icon name="location-outline"></ion-icon>
         {{ restaurant?.city }}</ion-card-subtitle>
     </ion-card-header>
-  
-    <ion-card-content>
-      <ion-row>
-        <div *ngIf="restaurant?.isVeg else nonVeg">
-          <ion-img src="../../assets/icon/veg.png"></ion-img>
-        </div>
-        <ng-template #nonVeg>
-          <ion-img src="../../assets/icon/non-veg.png"></ion-img>
-        </ng-template>
-        <ion-col>
-          {{ restaurant?.description }}
-        </ion-col>
-      </ion-row>
 
-      <ion-accordion-group>
+    <ion-card-content>
+      <div class="row">
+        <div class="col-1">
+          <div *ngIf="restaurant?.isVeg else nonVeg">
+            <ion-img src="../../assets/icon/veg.png"></ion-img>
+          </div>
+          <ng-template #nonVeg>
+            <ion-img src="../../assets/icon/non-veg.png"></ion-img>
+          </ng-template>
+        </div>
+        <div class="col">
+          {{ restaurant?.description | titlecase}}
+        </div>
+      </div>
+
+      <ion-accordion-group class="mt-2">
         <ion-accordion value="first">
           <ion-item slot="header" color="light">
             <ion-label>Menu</ion-label>
           </ion-item>
-          <div *ngFor="let menu of restaurant?.menu"  class="ion-padding" slot="content">
+          <div *ngFor="let menu of restaurant?.menu" class="ion-padding" slot="content">
             {{menu}}
           </div>
         </ion-accordion>

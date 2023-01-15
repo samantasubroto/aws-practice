@@ -16,4 +16,5 @@ type Restaurant @model {
   city: String!
   isVeg: Boolean!
   menu: [String]
+  rate: Int
 }

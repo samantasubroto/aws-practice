@@ -1,12 +1,12 @@
-import { IonicModule } from '@ionic/angular';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Tab1Page } from './tab1.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { IonicRatingModule } from 'ionic-rating';
+import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 import { Tab1PageRoutingModule } from './tab1-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
+import { Tab1Page } from './tab1.page';
 
 @NgModule({
   imports: [
@@ -18,7 +18,7 @@ import { BrowserModule } from '@angular/platform-browser';
     ScrollingModule,
     FormsModule,
     ReactiveFormsModule,
-    
+    IonicRatingModule,
   ],
   declarations: [Tab1Page]
 })
