@@ -15,7 +15,7 @@ SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom]);
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab2PageRoutingModule
+    Tab2PageRoutingModule,
   ],
   declarations: [Tab2Page]
 })
