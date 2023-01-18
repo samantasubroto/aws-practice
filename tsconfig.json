@@ -20,6 +20,8 @@
     "module": "es2020",
     "strictPropertyInitialization": false,
     "strictNullChecks": false,
+    "strictFunctionTypes": false,
+    "noImplicitAny": false,
     "lib": [
       "es2018", 
       "dom"

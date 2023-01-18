@@ -5,8 +5,25 @@ import { Auth } from 'aws-amplify';
 
 @Component({
   selector: 'app-user-conformation',
-  templateUrl: './user-conformation.component.html',
-  styleUrls: ['./user-conformation.component.scss'],
+  template: `<ion-content>
+  <form [formGroup]="confromationForm" (ngSubmit)="onSubmit()">
+    <ion-item lines="full">
+      <ion-label position="floating">OTP</ion-label>
+      <ion-input type="number" formControlName="OTP"></ion-input>
+    </ion-item>
+  
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block">Conform</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="resend()" color="danger" expand="block">resend</ion-button>
+      </ion-col>
+    </ion-row>
+    
+  </form>
+</ion-content>`
+,
 })
 export class UserConformationComponent implements OnInit {
   public confromationForm: FormGroup;

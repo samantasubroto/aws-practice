@@ -3,22 +3,29 @@
     <ion-toolbar>
       <ion-title>Menu Content</ion-title>
     </ion-toolbar>
-    <ion-item>
-      1
-    </ion-item>
+    <ng-container *ngFor="let item of menuitems">
+      <!-- <ion-scroll>
+        <ion-item (click)="logout()">
+          {{item}}
+        </ion-item>
+      </ion-scroll> -->
+    </ng-container>
   </ion-header>
-  <ion-content class="ion-padding">This is the menu content.</ion-content>
 </ion-menu>
-<div class="ion-page" id="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding">
-    Tap the button in the toolbar to open the menu.
-  </ion-content>
-</div>
+
+
+<ion-content>
+  <ion-button (click)="logout()" style="width:100%;">sign-out</ion-button>
+  <ion-virtual-scroll [items]="items" approxItemHeight="320px">
+    <ion-card *virtualItem="let item; let itemBounds= bounds;">
+      <div>
+        <ion-img [src]="item.imgSrc" [alt]="item.name">
+        </ion-img>
+      </div>
+      <ion-card-header>
+        <ion-card-title>{{ item.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>{{ item.content }}</ion-card-content>
+    </ion-card>
+  </ion-virtual-scroll>
+</ion-content>

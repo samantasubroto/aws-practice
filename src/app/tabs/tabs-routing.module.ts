@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../guards/index';
+import { ForgotPasswordComponent } from '../security/forgot-password/forgot-password.component';
 import { LoginComponent } from '../security/login/login.component';
 import { RegisterComponent } from '../security/register/register.component';
 import { UserConformationComponent } from '../security/user-conformation/user-conformation.component';
@@ -24,11 +25,13 @@ const routes: Routes = [
         path: 'tab2',
         loadChildren: () =>
           import('../tab2/tab2.module').then((m) => m.Tab2PageModule),
+        canActivate: [AuthGuard]
       },
       {
         path: 'tab3',
         loadChildren: () =>
           import('../tab3/tab3.module').then((m) => m.Tab3PageModule),
+        canActivate: [AuthGuard],
       },
       {
         path: '',
@@ -48,6 +51,10 @@ const routes: Routes = [
   {
     path: 'user-conformation/:username',
     component: UserConformationComponent,
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent,
   },
   {
     path: '',

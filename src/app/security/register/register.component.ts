@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
         username: this.signupForm.value.email,
         password: this.signupForm.value.password,
         attributes: {
-          phone_number: this.signupForm.value.phone, // optional - E.164 number convention
+          phone_number: JSON.stringify(this.signupForm.value.phone), // optional - E.164 number convention
           // other custom attributes
         },
         autoSignIn: {

@@ -13,6 +13,8 @@ import { RegisterModule } from './security/register/register.module';
 import { AuthGuard } from './guards';
 import { UserConformationComponent } from './security/user-conformation/user-conformation.component';
 import { UserConformationModule } from './security/user-conformation/user-conformation.module';
+import { ForgotPasswordComponent } from './security/forgot-password/forgot-password.component';
+import { ForgotPasswordModule } from './security/forgot-password/forgot-password.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,13 +25,17 @@ import { UserConformationModule } from './security/user-conformation/user-confor
     HttpClientModule,
     AmplifyAuthenticatorModule,
     ReactiveFormsModule,
-    IonicRatingModule, 
+    IonicRatingModule,
     AppRoutingModule,
     RouterModule,
     RegisterModule,
-    UserConformationModule
+    UserConformationModule,
+    ForgotPasswordModule
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthGuard],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    AuthGuard,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
