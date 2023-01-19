@@ -6,6 +6,7 @@ import { Tab2Page } from './tab2.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
 import { Tab2PageRoutingModule } from './tab2-routing.module';
+import { AgmCoreModule } from '@agm/core';
 
 SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom]);
 
@@ -16,6 +17,9 @@ SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom]);
     FormsModule,
     ExploreContainerComponentModule,
     Tab2PageRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAJxt_6gjK7MNHbDy6yOYzM1I95v61n3Z0'
+    })
   ],
   declarations: [Tab2Page]
 })

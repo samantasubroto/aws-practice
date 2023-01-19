@@ -38,7 +38,7 @@
     <ion-card-header>
       <ion-card-title>{{ restaurant?.name }}</ion-card-title>
       <ng-container *ngFor="let rating of  [].constructor(restaurant?.rate)">
-        <ion-icon name="star"></ion-icon>
+        <ion-icon class="ratings" name="star"></ion-icon>
       </ng-container>
       <ion-card-subtitle>
         <ion-icon name="location-outline"></ion-icon>
