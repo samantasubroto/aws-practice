@@ -35,7 +35,18 @@ subscription OnCreateRestaurant(
     description
     city
     isVeg
-    menu
+    menu {
+      items {
+        id
+        name
+        price
+        isAvailable
+        createdAt
+        updatedAt
+        restaurantMenuId
+      }
+      nextToken
+    }
     rate
     createdAt
     updatedAt
@@ -50,7 +61,18 @@ subscription OnUpdateRestaurant(
     description
     city
     isVeg
-    menu
+    menu {
+      items {
+        id
+        name
+        price
+        isAvailable
+        createdAt
+        updatedAt
+        restaurantMenuId
+      }
+      nextToken
+    }
     rate
     createdAt
     updatedAt
@@ -65,9 +87,53 @@ subscription OnDeleteRestaurant(
     description
     city
     isVeg
-    menu
+    menu {
+      items {
+        id
+        name
+        price
+        isAvailable
+        createdAt
+        updatedAt
+        restaurantMenuId
+      }
+      nextToken
+    }
     rate
     createdAt
     updatedAt
+  }
+}
+subscription OnCreateMenu($filter: ModelSubscriptionMenuFilterInput) {
+  onCreateMenu(filter: $filter) {
+    id
+    name
+    price
+    isAvailable
+    createdAt
+    updatedAt
+    restaurantMenuId
+  }
+}
+subscription OnUpdateMenu($filter: ModelSubscriptionMenuFilterInput) {
+  onUpdateMenu(filter: $filter) {
+    id
+    name
+    price
+    isAvailable
+    createdAt
+    updatedAt
+    restaurantMenuId
+  }
+}
+subscription OnDeleteMenu($filter: ModelSubscriptionMenuFilterInput) {
+  onDeleteMenu(filter: $filter) {
+    id
+    name
+    price
+    isAvailable
+    createdAt
+    updatedAt
+    restaurantMenuId
   }
 }

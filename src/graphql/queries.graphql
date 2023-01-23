@@ -1,4 +1,12 @@
 # this is an auto generated file. This will be overwritten
+query ListPosts {
+  listPosts {
+    id
+    title
+    description
+    views
+  }
+}
 query GetTodo($id: ID!) {
   getTodo(id: $id) {
     id
@@ -31,7 +39,18 @@ query GetRestaurant($id: ID!) {
     description
     city
     isVeg
-    menu
+    menu {
+      items {
+        id
+        name
+        price
+        isAvailable
+        createdAt
+        updatedAt
+        restaurantMenuId
+      }
+      nextToken
+    }
     rate
     createdAt
     updatedAt
@@ -49,10 +68,41 @@ query ListRestaurants(
       description
       city
       isVeg
-      menu
+      menu {
+        nextToken
+      }
       rate
       createdAt
       updatedAt
+    }
+    nextToken
+  }
+}
+query GetMenu($id: ID!) {
+  getMenu(id: $id) {
+    id
+    name
+    price
+    isAvailable
+    createdAt
+    updatedAt
+    restaurantMenuId
+  }
+}
+query ListMenus(
+  $filter: ModelMenuFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listMenus(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      price
+      isAvailable
+      createdAt
+      updatedAt
+      restaurantMenuId
     }
     nextToken
   }

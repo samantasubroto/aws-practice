@@ -18,20 +18,20 @@ const routes: Routes = [
       {
         path: 'tab1',
         component: Tab1Page,
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
         //loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
       },
       {
         path: 'tab2',
         loadChildren: () =>
           import('../tab2/tab2.module').then((m) => m.Tab2PageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'tab3',
         loadChildren: () =>
           import('../tab3/tab3.module').then((m) => m.Tab3PageModule),
-        canActivate: [AuthGuard],
+       // canActivate: [AuthGuard],
       },
       {
         path: '',

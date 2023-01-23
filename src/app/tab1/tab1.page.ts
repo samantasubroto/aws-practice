@@ -27,31 +27,31 @@ export class Tab1Page implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.api.ListRestaurants().then((event) => {
-      this.restaurants = event.items as Restaurant[];
-    }).catch((e) => {
-      console.log('error loading data... ', e);
-    });
+    // this.api.ListRestaurants().then((event) => {
+    //   this.restaurants = event.items as Restaurant[];
+    // }).catch((e) => {
+    //   console.log('error loading data... ', e);
+    // });
 
-    this.subscription = this.api.OnCreateRestaurantListener().subscribe(
-      (event: any) => {
-        const newRestaurant = event.value.data.onCreateRestaurant;
-        this.restaurants = [newRestaurant, ...this.restaurants];
-      }
-    );
+    // this.subscription = this.api.OnCreateRestaurantListener().subscribe(
+    //   (event: any) => {
+    //     const newRestaurant = event.value.data.onCreateRestaurant;
+    //     this.restaurants = [newRestaurant, ...this.restaurants];
+    //   }
+    // );
   }
 
   public onCreate(restaurant: Restaurant) {
-    //console.log(restaurant);
-    this.api
-      .CreateRestaurant(restaurant)
-      .then(() => {
-        console.log('item created!');
-        this.createForm.reset();
-      })
-      .catch((e) => {
-        console.log('error creating restaurant...', e);
-      });
+    // //console.log(restaurant);
+    // this.api
+    //   .CreateRestaurant(restaurant)
+    //   .then(() => {
+    //     console.log('item created!');
+    //     this.createForm.reset();
+    //   })
+    //   .catch((e) => {
+    //     console.log('error creating restaurant...', e);
+    //   });
   }
 
   ngOnDestroy() {

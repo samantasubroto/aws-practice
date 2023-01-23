@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Route, Router } from '@angular/router';
-import { PickerController } from '@ionic/angular';
+import { StatusBarInfo } from '@capacitor/status-bar';
 import { Auth } from 'aws-amplify';
+import { APIService, Restaurant } from '../API.service';
 
 @Component({
   selector: 'app-tab3',
@@ -14,6 +14,8 @@ export class Tab3Page {
   ];
   items: any[] = [];
   rotateImg = 0;
+  notification : Restaurant;
+  //ds : Status;
 
   constructor() {
     for (let i = 0; i < 1000; i++) {

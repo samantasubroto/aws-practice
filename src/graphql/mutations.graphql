@@ -45,7 +45,18 @@ mutation CreateRestaurant(
     description
     city
     isVeg
-    menu
+    menu {
+      items {
+        id
+        name
+        price
+        isAvailable
+        createdAt
+        updatedAt
+        restaurantMenuId
+      }
+      nextToken
+    }
     rate
     createdAt
     updatedAt
@@ -61,7 +72,18 @@ mutation UpdateRestaurant(
     description
     city
     isVeg
-    menu
+    menu {
+      items {
+        id
+        name
+        price
+        isAvailable
+        createdAt
+        updatedAt
+        restaurantMenuId
+      }
+      nextToken
+    }
     rate
     createdAt
     updatedAt
@@ -77,9 +99,62 @@ mutation DeleteRestaurant(
     description
     city
     isVeg
-    menu
+    menu {
+      items {
+        id
+        name
+        price
+        isAvailable
+        createdAt
+        updatedAt
+        restaurantMenuId
+      }
+      nextToken
+    }
     rate
     createdAt
     updatedAt
+  }
+}
+mutation CreateMenu(
+  $input: CreateMenuInput!
+  $condition: ModelMenuConditionInput
+) {
+  createMenu(input: $input, condition: $condition) {
+    id
+    name
+    price
+    isAvailable
+    createdAt
+    updatedAt
+    restaurantMenuId
+  }
+}
+mutation UpdateMenu(
+  $input: UpdateMenuInput!
+  $condition: ModelMenuConditionInput
+) {
+  updateMenu(input: $input, condition: $condition) {
+    id
+    name
+    price
+    isAvailable
+    createdAt
+    updatedAt
+    restaurantMenuId
+  }
+}
+mutation DeleteMenu(
+  $input: DeleteMenuInput!
+  $condition: ModelMenuConditionInput
+) {
+  deleteMenu(input: $input, condition: $condition) {
+    id
+    name
+    price
+    isAvailable
+    createdAt
+    updatedAt
+    restaurantMenuId
   }
 }

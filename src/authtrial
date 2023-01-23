@@ -1,0 +1,7 @@
+#@auth(
+#    rules: [
+#      { allow: owner, operations: [create, delete, read, update] },
+#      { allow: groups, groups: ["test"], operations: [create, delete, read]  },
+#      { allow: private, operations: [read] }
+#    ]
+#  )

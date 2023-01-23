@@ -8,13 +8,55 @@ type Todo @model {
   description: String
 }
 
-
-type Restaurant @model {
+type Restaurant @model
+ @auth(rules: [{ allow: public }])  {
   id: ID!
   name: String!
   description: String!
   city: String!
   isVeg: Boolean!
-  menu: [String]
+  menu: [Menu] @hasMany
   rate: Int
+}
+
+type Menu @model {
+  id: ID!
+  name: String!
+  price: Int!
+  isAvailable: Boolean!
+}
+
+enum Status {
+  INSTALLED
+  PENDING
+  DENIED
+  FAILED
+}
+
+type Response {
+  email: String!
+  appName: String!
+  appId: String!
+  status: String!
+  requestedOn: String
+}
+
+
+type Post {
+  id: ID!
+  title: String
+  description: String
+  views: Int
+}
+
+type Query {
+  listPosts: [Post] @http(url: "https://jsonplaceholder.typicode.com/posts")
+}
+
+type Photos @model {
+ id: ID!
+ albumId: Int!
+ title: String!
+ url: String!
+ thumbnailUrl: String! 
 }
